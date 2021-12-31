@@ -160,14 +160,23 @@ function runGame() {
 
 function collisionDetection() {
   // top
-
-  if (yP + radius > canvasEl.height) {
-    yP = canvasEl.height + radius;
+  if (yP <= radius) {
+    yP = radius + 5;
   }
 
   // bottom
   if (yP >= canvasEl.height - radius) {
     yP = canvasEl.height - radius - 5;
+  }
+
+  // left
+  if (xP <= radius) {
+    xP = radius + 5;
+  }
+
+  // right
+  if (xP >= canvasEl.width - radius) {
+    xP = canvasEl.width - radius - 5;
   }
 }
 
