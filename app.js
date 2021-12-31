@@ -151,13 +151,39 @@ function runGame() {
 
   arrowInputs();
 
+  collisionDetection();
+
   drawBall();
+}
+
+// detect the edges with collision detection
+
+function collisionDetection() {
+  // top
+
+  if (yP + radius > canvasEl.height) {
+    yP = canvasEl.height + radius;
+  }
+
+  // bottom
+  if (yP >= canvasEl.height - radius) {
+    yP = canvasEl.height - radius - 5;
+  }
 }
 
 // moving the balls
 function arrowInputs() {
   if (upDir) {
     yP = yP - speed;
+  }
+  if (downDir) {
+    yP = yP + speed;
+  }
+  if (leftDir) {
+    xP = xP - speed;
+  }
+  if (rightDir) {
+    xP = xP + speed;
   }
 }
 
